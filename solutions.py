@@ -1,3 +1,22 @@
+# Your family runs a shop and have just brought a Scrolling Text Machine (http://3.imimg.com/data3/RP/IP/MY-2369478/l-e-d-multicolour-text-board-250x250.jpg) to help get some more business.
+
+# The scroller works by replacing the current text string with a similar text string, but with the first letter shifted to the end; this simulates movement.
+
+# You're father is far too busy with the business to worry about such details, so, naturally, he's making you come up with the text strings.
+
+# Create a function named rotate() that accepts a string argument and returns an array of strings with each letter from the input string being rotated to the end.
+
+def rotate(str_):
+    temp_list = list(str_)
+    answer_list = []
+    my_string = ""
+    for i in range(len(temp_list)):
+        temp_list.append(temp_list[0])
+        temp_list.pop(0)
+        my_string = "".join(temp_list)
+        answer_list.append(my_string)
+    return answer_list
+
 # Given an array of integers of any length, return an array that has 1 added to the value represented by the array.
 
 # the array can't be empty
