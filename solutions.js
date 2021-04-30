@@ -1,3 +1,56 @@
+// Your task is to convert a given number into a string with commas added for easier readability. The number should be rounded to 3 decimal places and the commas should be added at intervals of three digits before the decimal point. There does not need to be a comma at the end of the number.
+
+// You will receive both positive and negative numbers.
+
+function commas(num){
+  let isInt = true
+  let decimalArray = []
+  let wholeNumArray = []
+  let decimalFound = false
+  let counter = 1
+  if(!Number.isInteger(num)){
+    num = num.toFixed(3)
+    isInt = false
+  }
+  num = num.toString().split('')
+  if(isInt === false){
+    for(let i = 0; i < num.length; i++){
+      if(num[i] === "."){
+        decimalFound = true
+      }
+      if(decimalFound === true){
+        decimalArray.push(num[i])
+      } else{
+        wholeNumArray.push(num[i])
+      }
+    }
+  } else{
+    for(let i = 0; i < num.length; i++){
+      wholeNumArray.push(num[i])
+    }
+  }
+  for(let i = wholeNumArray.length - 1; i > 0; i--){
+    if(wholeNumArray[i - 1] !== "-" && counter % 3 === 0){
+      wholeNumArray.splice(i, 0, ",")
+      counter++
+    } else{
+      counter++
+    }
+  }
+  wholeNumArray = wholeNumArray.join('')
+  if(decimalArray[decimalArray.length - 1] === "0"){
+    decimalArray.pop()
+    if(decimalArray[decimalArray.length - 1] === "0"){
+    decimalArray.pop()
+    }
+  }
+  decimalArray = decimalArray.join('')
+  let answer = wholeNumArray.concat(decimalArray)
+  return answer
+}
+
+
+
 // Retirement home viewing is on a knife edge - it really has been a bad day on Countdown…!! (https://en.wikipedia.org/wiki/Countdown_(game_show))
 
 // Nick Hewer has lost his glasses and someone is playing tricks on Rachel Riley.
