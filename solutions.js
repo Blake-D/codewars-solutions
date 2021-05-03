@@ -1,3 +1,25 @@
+// The vowel substrings in the word codewarriors are o,e,a,io. The longest of these has a length of 2. Given a lowercase string that has alphabetic characters only (both vowels and consonants) and no spaces, return the length of the longest vowel substring. Vowels are any of aeiou.
+
+
+function solve(s){
+  s = s.split('')
+  const glossary = ["a", "e", "i", "o", "u"]
+  let largest = 0
+  let tempLargest = 0
+  for(let i = 0; i < s.length; i++ ){
+    if(glossary.includes(s[i])){
+      tempLargest++
+    } else{
+      if(tempLargest > largest){
+        largest = tempLargest
+      }
+      tempLargest = 0
+    }
+  }
+  return largest
+}
+
+
 // Your task is to convert a given number into a string with commas added for easier readability. The number should be rounded to 3 decimal places and the commas should be added at intervals of three digits before the decimal point. There does not need to be a comma at the end of the number.
 
 // You will receive both positive and negative numbers.
