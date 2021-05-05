@@ -1,3 +1,22 @@
+// The main idea is to count all the occurring characters in a string. If you have a string like aba, then the result should be {'a': 2, 'b': 1}.
+
+// What if the string is empty? Then the result should be empty object literal, {}.
+
+function count (string) {
+  string = string.split('')
+  let letterInstances = {}
+  for(let i = 0; i < string.length; i++){
+    if(string[i] in letterInstances){
+      letterInstances[string[i]]++
+    } else{
+      letterInstances[string[i]] = 1
+    }
+  }
+  return letterInstances
+}
+
+
+
 // The vowel substrings in the word codewarriors are o,e,a,io. The longest of these has a length of 2. Given a lowercase string that has alphabetic characters only (both vowels and consonants) and no spaces, return the length of the longest vowel substring. Vowels are any of aeiou.
 
 
