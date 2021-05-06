@@ -1,3 +1,16 @@
+// Complete the method/function so that it converts dash/underscore delimited words into camel casing. The first word within the output should be capitalized only if the original word was capitalized (known as Upper Camel Case, also often referred to as Pascal case).
+
+function toCamelCase(str){
+  str = str.split('')
+  for(let i = str.length -1; i >= 0;  i--){
+    if(str[i] === "-" || str[i] === "_"){
+      str[i+1] = str[i+1].toUpperCase()
+      str.splice(i, 1)
+    }
+  }
+  return str.join('')
+}
+
 // The main idea is to count all the occurring characters in a string. If you have a string like aba, then the result should be {'a': 2, 'b': 1}.
 
 // What if the string is empty? Then the result should be empty object literal, {}.
