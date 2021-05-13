@@ -1,3 +1,22 @@
+// In this little assignment you are given a string of space separated numbers, and have to return the highest and lowest number.
+
+// Example:
+
+// highAndLow("1 2 3 4 5");  // return "5 1"
+// highAndLow("1 2 -3 4 5"); // return "5 -3"
+// highAndLow("1 9 3 4 -5"); // return "9 -5"
+// Notes:
+
+// All numbers are valid Int32, no need to validate them.
+// There will always be at least one number in the input string.
+// Output string must be two numbers separated by a single space, and highest number is first.
+
+function highAndLow(numbers){
+  numbers = numbers.split(' ').sort(function(a, b){return a - b})
+  let tempArray = [numbers[numbers.length-1], numbers[0]]
+  return tempArray.join(' ')
+}
+
 // Complete the method/function so that it converts dash/underscore delimited words into camel casing. The first word within the output should be capitalized only if the original word was capitalized (known as Upper Camel Case, also often referred to as Pascal case).
 
 function toCamelCase(str){
