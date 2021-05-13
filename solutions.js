@@ -1,3 +1,21 @@
+// Given an array of integers, find the one that appears an odd number of times.
+
+// There will always be only one integer that appears an odd number of times.
+
+function findOdd(A) {
+  for(let i = 0; i < A.length; i++){
+    let count = 0
+    for(let j = 0; j < A.length; j++){
+      if(A[j] === A[i]){
+        count++
+      }
+      if(j === A.length-1 && count % 2 !== 0){
+        return A[i]
+      }
+    }
+  }
+}
+
 // In this little assignment you are given a string of space separated numbers, and have to return the highest and lowest number.
 
 // Example:
