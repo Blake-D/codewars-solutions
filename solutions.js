@@ -1,3 +1,15 @@
+// Complete the solution so that the function will break up camel casing, using a space between words.
+
+function solution(string) {
+  string = string.split('')
+  for(let i = 0; i < string.length; i++){
+    if(string[i] === string[i].toUpperCase()){
+      string[i] = " " + string[i]
+    }
+  }
+  return string.join('')
+}
+
 // Given an array of integers, find the one that appears an odd number of times.
 
 // There will always be only one integer that appears an odd number of times.
