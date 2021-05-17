@@ -1,3 +1,14 @@
+# Given an array of integers, find the one that appears an odd number of times.
+
+# There will always be only one integer that appears an odd number of times.
+
+def find_it(seq):
+    for i in seq:
+        occurrences = seq.count(i)
+        if occurrences % 2 != 0:
+            return i
+
+
 # Complete the method/function so that it converts dash/underscore delimited words into camel casing. The first word within the output should be capitalized only if the original word was capitalized (known as Upper Camel Case, also often referred to as Pascal case).
 
 # Examples
