@@ -1,3 +1,22 @@
+// Assume "#" is like a backspace in string. This means that string "a#bc#d" actually is "bd"
+
+// Your task is to process a string with "#" symbols.
+
+function cleanString(s) {
+  s = s.split('')
+  for(let i = 0; i < s.length; i++){
+    if(s[i] === "#"){
+      if(i === 0){
+        s.shift()
+        i = -1
+      } else{
+          s.splice(i-1, 2)
+          i = i - 2
+      }
+    }
+  }
+  return s.join('')
+}
 // Complete the solution so that the function will break up camel casing, using a space between words.
 
 function solution(string) {
