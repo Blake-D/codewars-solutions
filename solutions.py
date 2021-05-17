@@ -1,3 +1,19 @@
+# Complete the method/function so that it converts dash/underscore delimited words into camel casing. The first word within the output should be capitalized only if the original word was capitalized (known as Upper Camel Case, also often referred to as Pascal case).
+
+# Examples
+# "the-stealth-warrior" gets converted to "theStealthWarrior"
+# "The_Stealth_Warrior" gets converted to "TheStealthWarrior"
+
+def to_camel_case(text):
+    text = list(text)
+    i = len(text) - 1
+    while i >= 0:
+        if text[i] == "-" or text[i] == "_":
+            text[i+1] = text[i+1].upper()
+            text.pop(i)
+        i -= 1
+    return("".join(text))
+
 # The vowel substrings in the word codewarriors are o,e,a,io. The longest of these has a length of 2. Given a lowercase string that has alphabetic characters only (both vowels and consonants) and no spaces, return the length of the longest vowel substring. Vowels are any of aeiou.
 
 def solve(s):
