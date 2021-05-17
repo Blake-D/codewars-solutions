@@ -1,3 +1,19 @@
+# The vowel substrings in the word codewarriors are o,e,a,io. The longest of these has a length of 2. Given a lowercase string that has alphabetic characters only (both vowels and consonants) and no spaces, return the length of the longest vowel substring. Vowels are any of aeiou.
+
+def solve(s):
+    vowels = "aeiou"
+    largest = 0
+    temp_largest = 0
+    for i in s:
+        if i in vowels:
+            temp_largest += 1
+        else:
+            if temp_largest > largest:
+                largest = temp_largest
+            temp_largest = 0
+    return largest
+
+
 # Your family runs a shop and have just brought a Scrolling Text Machine (http://3.imimg.com/data3/RP/IP/MY-2369478/l-e-d-multicolour-text-board-250x250.jpg) to help get some more business.
 
 # The scroller works by replacing the current text string with a similar text string, but with the first letter shifted to the end; this simulates movement.
