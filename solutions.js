@@ -1,3 +1,19 @@
+// Write an algorithm that takes an array and moves all of the zeros to the end, preserving the order of the other elements.
+
+var moveZeros = function (arr) {
+  let zeroArr = []
+  let otherArr = []
+  for(let i = 0; i < arr.length; i++){
+    if(arr[i] === 0){
+      zeroArr.push(arr[i])
+    } else{
+      otherArr.push(arr[i])
+    }
+  }
+  return(otherArr.concat(zeroArr))
+}
+
+
 // # Reverse every other word in a given string, then return the string. Throw away any leading or trailing whitespace, while ensuring there is exactly one space between each word. Punctuation marks should be treated as if they are a part of the word in this kata.
 
 function reverse(str){
