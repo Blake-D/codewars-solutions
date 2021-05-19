@@ -1,3 +1,111 @@
+// Write a function that when given a URL as a string, parses out just the domain name and returns it as a string. For example:
+
+// the bottom-most of the two solutions below was my first swing at it. It worked, but it is super wet
+
+// then I learned a way more efficient way to use .replace() and a new way to use .split() and reduced the solution to a single line
+
+// vv 2nd attempt
+
+function domainName(url){
+  return url.replace('http://', '').replace('https://', '').replace('www.', '').split('.')[0]
+}
+
+// 1st attempt
+
+function domainName(url){
+  let myArr = []
+  if(url.includes("http://www.")){
+    url = url.replace("http://www.", "").split('')
+    for(let i = 0; i < url.length; i++){
+      if(url[i] === "."){
+        break
+      } else{
+        myArr.push(url[i])
+      }
+    }
+    return myArr.join('')
+  } else if(url.includes("http://")){
+      url = url.replace("http://", "").split('')
+      for(let i = 0; i < url.length; i++){
+        if(url[i] === "."){
+          break
+        } else{
+          myArr.push(url[i])
+        }
+      }
+      return myArr.join('')
+  } else if(url.includes("https://www.")){
+      url = url.replace("https://www.", "").split('')
+      for(let i = 0; i < url.length; i++){
+        if(url[i] === "."){
+          break
+        } else{
+          myArr.push(url[i])
+        }
+      }
+      return myArr.join('')
+  } else if(url.includes("https://")){
+      url = url.replace("https://", "").split('')
+      for(let i = 0; i < url.length; i++){
+        if(url[i] === "."){
+          break
+        } else{
+          myArr.push(url[i])
+        }
+      }
+      return myArr.join('')
+  } else if(url.includes("www.")){
+      url = url.replace("www.", "").split('')
+      for(let i = 0; i < url.length; i++){
+        if(url[i] === "."){
+          break
+        } else{
+          myArr.push(url[i])
+        }
+      }
+      return myArr.join('')
+  } else{
+    for(let i = 0; i < url.length; i++){
+      if(url[i] === "."){
+        break
+      } else{
+        myArr.push(url[i])
+      }
+    }
+    return myArr.join('')
+  }
+}
+
+// You probably know the "like" system from Facebook and other pages. People can "like" blog posts, pictures or other items. We want to create the text that should be displayed next to such an item.
+
+function likes(names) {
+  if(names.length === 0){
+    return "no one likes this"
+  } else if(names.length === 1){
+    return `${names[0]} likes this`
+  } else if(names.length === 2){
+    return `${names[0]} and ${names[1]} like this`
+  } else if(names.length === 3){
+    return `${names[0]}, ${names[1]} and ${names[2]} like this`
+  } else if(names.length > 3){
+    let num = names.length - 2
+    return `${names[0]}, ${names[1]} and ${num} others like this`
+  }
+}
+
+// Create a function that takes a number and returns an array of strings containing the number cut off at each digit.
+
+function createArrayOfTiers(num) {
+  num = num.toString()
+  let myArr = []
+  let myStr = ""
+  for(let i = 0; i < num.length; i++){
+    myStr = myStr + num[i]
+    myArr.push(myStr)
+  }
+  return myArr
+}
+
 // Write an algorithm that takes an array and moves all of the zeros to the end, preserving the order of the other elements.
 
 var moveZeros = function (arr) {
