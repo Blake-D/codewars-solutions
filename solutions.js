@@ -1,3 +1,53 @@
+// Your job is to write a function which increments a string, to create a new string.
+
+// If the string already ends with a number, the number should be incremented by 1.
+// If the string does not end with a number. the number 1 should be appended to the new string.
+// Examples:
+
+// foo -> foo1
+
+// foobar23 -> foobar24
+
+// foo0042 -> foo0043
+
+// foo9 -> foo10
+
+// foo099 -> foo100
+
+// Attention: If the number has leading zeros the amount of digits should be considered.
+
+function incrementString (string) {
+  const glossary = "0123456789"
+  let letterArray = []
+  let numArray = []
+  string = string.split('')
+  for(let i = 0; i < string.length; i++){
+    if(glossary.includes(string[i])){
+      numArray.push(string[i])
+    } else{
+      letterArray.push(string[i])
+    }
+  }
+  if(numArray.length === 0){
+    numArray.push(1)
+  } else{
+    for(let x = numArray.length - 1; x > -1; x--){
+      numArray[x]++
+      if(numArray[x] == 10 && x != 0){
+        numArray[x] = "0"
+      } else if(numArray[x] == 10 && x === 0){
+          numArray[x] = "0"
+          numArray.unshift(1)
+          break
+      } else{
+          numArray[x] = numArray[x].toString()
+          break
+      }
+    }
+  }
+  return letterArray.join('')+numArray.join('')
+}
+
 // Write a function that when given a URL as a string, parses out just the domain name and returns it as a string. For example:
 
 // the bottom-most of the two solutions below was my first swing at it. It worked, but it is super wet
