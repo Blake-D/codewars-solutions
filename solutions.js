@@ -1,3 +1,29 @@
+// GIVEN TWO STRINGS, WRITE A METHOD TO DECIDE IF ONE IS A PERMUTATION OF THE OTHER
+
+function checkPermutation(str1, str2){
+  if(str1.length !== str2.length){
+    return false
+  } else{
+    str1 = str1.split('')
+    str2 = str2.split('')
+    for(let i = 0; i < str1.length; i++){
+      for(let j = 0; j < str2.length; j++){
+        if(str1[i] === str2[j]){
+          str1.splice(i, 1)
+          str2.splice(j, 1)
+          i--
+          j--
+        }
+      }
+    }
+  }
+  if(str1.length === 0 && str2.length === 0){
+    return true
+  } else{
+    return false
+  }
+}
+
 // The maximum sum subarray problem consists in finding the maximum sum of a contiguous subsequence in an array or list of integers:
 
 // maxSequence([-2, 1, -3, 4, -1, 2, 1, -5, 4])
