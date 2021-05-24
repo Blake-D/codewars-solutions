@@ -1,3 +1,16 @@
+// Write a method to replace all spaces in a string with '%20'
+
+function fillSpaces(str){
+  str = str.trim().split('')
+  for(let i = 0; i < str.length; i++){
+    if(str[i] === " "){
+      str[i] = "%20"
+    }
+  }
+  return str.join('')
+}
+
+
 // GIVEN TWO STRINGS, WRITE A METHOD TO DECIDE IF ONE IS A PERMUTATION OF THE OTHER
 
 function checkPermutation(str1, str2){
