@@ -1,3 +1,21 @@
+# Reverse every other word in a given string, then return the string. Throw away any leading or trailing whitespace, while ensuring there is exactly one space between each word. Punctuation marks should be treated as if they are a part of the word in this kata.
+
+def reverse_alternate(string):
+    string = string.strip().split(" ")
+    i = 0
+    while i < len(string):
+        if len(string[i]) == 0:
+            string.remove(string[i])
+        else:
+            i += 1
+    i = 1
+    while i < len(string):
+        string[i] = list(string[i])
+        string[i].reverse()
+        string[i] = "".join(string[i])
+        i += 2
+    return " ".join(string)
+
 # Given an array of integers, find the one that appears an odd number of times.
 
 # There will always be only one integer that appears an odd number of times.
