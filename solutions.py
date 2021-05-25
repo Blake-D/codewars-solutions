@@ -1,3 +1,12 @@
+# Write a function that when given a URL as a string, parses out just the domain name and returns it as a string. For example:
+
+# domain_name("http://github.com/carbonfive/raygun") == "github" 
+# domain_name("http://www.zombie-bites.com") == "zombie-bites"
+# domain_name("https://www.cnet.com") == "cnet"
+
+def domain_name(url):
+    return url.replace('http://', '').replace('https://', '').replace('www.', '').split('.')[0]
+
 # You probably know the "like" system from Facebook and other pages. People can "like" blog posts, pictures or other items. We want to create the text that should be displayed next to such an item.
 
 # Implement a function likes :: [String] -> String, which must take in input array, containing the names of people who like an item. It must return the display text as shown in the examples:
