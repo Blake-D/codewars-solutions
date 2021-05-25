@@ -1,3 +1,22 @@
+# Create a function that takes a number and returns an array of strings containing the number cut off at each digit.
+
+# Examples
+# 420 should return ["4", "42", "420"]
+# 2017 should return ["2", "20", "201", "2017"]
+# 2010 should return ["2", "20", "201", "2010"]
+# 4020 should return ["4", "40", "402", "4020"]
+# 80200 should return ["8", "80", "802", "8020", "80200"]
+# PS: The input is guaranteed to be an integer in the range [0, 1000000]
+
+def create_array_of_tiers(n):
+    n = list(f'{n}')
+    answer_list = []
+    temp_str = ""
+    for char in n:
+        temp_str = temp_str + char
+        answer_list.append(temp_str)
+    return answer_list
+
 # Reverse every other word in a given string, then return the string. Throw away any leading or trailing whitespace, while ensuring there is exactly one space between each word. Punctuation marks should be treated as if they are a part of the word in this kata.
 
 def reverse_alternate(string):
