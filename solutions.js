@@ -1,3 +1,60 @@
+// A format for expressing an ordered list of integers is to use a comma separated list of either
+
+// individual integers
+// or a range of integers denoted by the starting integer separated from the end integer in the range by a dash, '-'. The range includes all integers in the interval including both endpoints. It is not considered a range unless it spans at least 3 numbers. For example "12,13,15-17"
+// Complete the solution so that it takes a list of integers in increasing order and returns a correctly formatted string in the range format.
+
+// Example:
+
+// solution([-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20]);
+// returns "-6,-3-1,3-5,7-11,14,15,17-20"
+
+function solution(list){
+  let answerArray = []
+  let lowest = undefined
+  let highest = undefined
+  for (let i = 0; i < list.length; i++){
+    if(list[i+1] !== list[i]+1){
+      answerArray.push(list[i].toString())
+      list.shift()
+      i--
+    } else if(list[i+2] !== list[i]+2){
+        answerArray.push(list[i].toString())
+        answerArray.push(list[i+1].toString())
+        list.shift()
+        list.shift()
+        i--
+    } else{
+        lowest = list[i]
+        highest = list[i]
+        list.shift()
+        for(let j = i; j < list.length; j++){
+          if(list[j] === highest+1){
+            highest = list[j]
+            list.shift()
+            if(j === list.length){
+              lowest = lowest.toString()
+              highest = highest.toString()
+              let temp = lowest+"-"+highest
+              answerArray.push(temp)
+              break
+            } else{
+              j--
+            }
+          } else{
+            lowest = lowest.toString()
+            highest = highest.toString()
+            let temp = lowest+"-"+highest
+            answerArray.push(temp)
+            i--
+            break
+          }
+        }
+      }
+    }
+  return answerArray.toString()
+}
+
 // Write a method to replace all spaces in a string with '%20'
 
 function fillSpaces(str){
