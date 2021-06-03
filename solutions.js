@@ -1,3 +1,24 @@
+// ROT13 is a simple letter substitution cipher that replaces a letter with the letter 13 letters after it in the alphabet. ROT13 is an example of the Caesar cipher.
+
+// Create a function that takes a string and returns the string ciphered with Rot13. If there are numbers or special characters included in the string, they should be returned as they are. Only letters from the latin/english alphabet should be shifted, like in the original Rot13 "implementation".
+
+function rot13(message){
+  let input = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+  let output = ['N','O','P','Q','R','S','T','U','V','W','X','Y','Z','A','B','C','D','E','F','G','H','I','J','K','L','M','n','o','p','q','r','s','t','u','v','w','x','y','z','a','b','c','d','e','f','g','h','i','j','k','l','m']
+  message = message.split(' ')
+  for(let i = 0; i < message.length; i++){
+    message[i] = message[i].split('')
+    for(let j = 0; j < message[i].length; j++){
+      if(input.includes(message[i][j])){
+        let inputIndex = input.indexOf(message[i][j])
+        message[i][j] = output[inputIndex]
+      }
+    }
+    message[i] = message[i].join('')
+  }
+  return message.join(' ')
+}
+
 // A format for expressing an ordered list of integers is to use a comma separated list of either
 
 // individual integers
