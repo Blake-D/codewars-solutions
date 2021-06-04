@@ -1,3 +1,42 @@
+// Write an algorithm that will identify valid IPv4 addresses in dot-decimal format. IPs should be considered valid if they consist of four octets, with values between 0 and 255, inclusive.
+
+// Input to the function is guaranteed to be a single string.
+
+// Examples
+// Valid inputs:
+
+// 1.2.3.4
+// 123.45.67.89
+// Invalid inputs:
+
+// 1.2.3
+// 1.2.3.4.5
+// 123.456.78.90
+// 123.045.067.089
+// Note that leading zeros (e.g. 01.02.03.04) are considered invalid.
+
+function isValidIP(str) {
+  const gloss = '0123456789'
+  str = str.split('.')
+  if(str.length !== 4){
+    return false
+  } else{
+    for(let i = 0; i < str.length; i++){
+      str[i] = str[i].split('')
+      for(let j = 0; j < str[i].length; j++){
+        if(!gloss.includes(str[i][j])){
+           return false
+        }
+      }
+      str[i] = str[i].join('')
+      if((str[i].length > 1 && str[i][0] === '0') || parseInt(str[i]) < 0 || parseInt(str[i]) > 255 || !str[i]){
+        return false
+      }
+    }
+  }
+  return true
+}
+
 // ROT13 is a simple letter substitution cipher that replaces a letter with the letter 13 letters after it in the alphabet. ROT13 is an example of the Caesar cipher.
 
 // Create a function that takes a string and returns the string ciphered with Rot13. If there are numbers or special characters included in the string, they should be returned as they are. Only letters from the latin/english alphabet should be shifted, like in the original Rot13 "implementation".
