@@ -1,3 +1,22 @@
+// Write a function that when given a number >= 0, returns an Array of ascending length subarrays.
+
+// pyramid(0) => [ ]
+// pyramid(1) => [ [1] ]
+// pyramid(2) => [ [1], [1, 1] ]
+// pyramid(3) => [ [1], [1, 1], [1, 1, 1] ]
+
+function pyramid(n){
+  let tempArr = []
+  for(let i = 0; i <= n; i++){
+    tempArr.push(1)
+  }
+  let ans = []
+  for(let i = tempArr.length - 1; i > 0; i--){
+    ans.push(tempArr.slice(i))
+  }
+  return ans
+}
+
 // Build up a method that takes an integer and formats it to a 'time - like' format.
 
 // The method must raise an exception if its hour length is less than 3 digits and greater than 4.
