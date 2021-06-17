@@ -1,3 +1,26 @@
+// Please write a function that will take a string as input and return a hash. The string will be formatted as such. The key will always be a symbol and the value will always be an integer.
+
+// "a=1, b=2, c=3, d=4"
+// This string should return a hash that looks like
+
+// { 'a': 1, 'b': 2, 'c': 3, 'd': 4}
+
+function strToHash(str){
+  let arrs = []
+  let obj = {}
+  if(!str){
+    return {}
+  } else{
+    str = str.split(',')
+    for(let i = 0; i < str.length; i++){
+      str[i] = str[i].trim().split('=')
+      arrs.push(str[i])
+      obj[arrs[i][0]] = parseInt(arrs[i][1])
+    }
+  }
+  return obj
+}
+
 // You will be given an array of numbers. You have to sort the odd numbers in ascending order while leaving the even numbers at their original positions.
 
 // Examples
