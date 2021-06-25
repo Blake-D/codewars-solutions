@@ -1,3 +1,22 @@
+// In this kata you are required to, given a string, replace every letter with its position in the alphabet.
+
+// If anything in the text isn't a letter, ignore it and don't return it.
+
+// "a" = 1, "b" = 2, etc.
+
+function alphabetPosition(text) {
+  const glossary = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  let numArr = []
+  for(let i = 0; i < text.length; i++){
+    if(glossary.includes(text[i])){
+      let char = text[i].toLowerCase()
+      let num = char.charCodeAt(0) - 96
+      numArr.push(num)
+    }
+  }
+  return numArr.join(' ')
+}
+
 // Please write a function that will take a string as input and return a hash. The string will be formatted as such. The key will always be a symbol and the value will always be an integer.
 
 // "a=1, b=2, c=3, d=4"
